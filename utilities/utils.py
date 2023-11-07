@@ -84,9 +84,10 @@ class WandBLogger(object):
     @staticmethod
     def get_default_config(updates=None):
         config = ConfigDict()
-        config.team = "jax_diffrl"
-        config.online = False
-        config.project = "DiffusionRL"
+        # config.team = "jax_diffrl"
+        config.entity = 'ml_cat'
+        config.online = True
+        config.project = "jaxDiffusionRL"
         config.output_dir = "logs"
         config.random_delay = 0.0
         config.log_dir = config_dict.placeholder(str)
@@ -120,7 +121,7 @@ class WandBLogger(object):
             time.sleep(np.random.uniform(0, self.config.random_delay))
 
         self.run = wandb.init(
-            entity=self.config.team,
+            entity=self.config.entity,
             reinit=True,
             config=self._variant,
             project=self.config.project,

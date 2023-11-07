@@ -11,7 +11,7 @@ def get_config():
     config.trainer = "DiffuserTrainer"
     config.type = "model-free"
 
-    config.env = "halfcheetah-medium-v2"
+    config.env = "bullet-halfcheetah-medium-v0"
     config.dataset = "d4rl"
     config.dataset_class = "SequenceDataset"
     config.use_padding = True

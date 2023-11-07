@@ -263,8 +263,11 @@ class BaseVectorEnv(object):
             self._assert_id(id)
 
         # send(None) == reset() in worker
+        # import ipdb
+        # ipdb.set_trace()
         for i in id:
             self.workers[i].send(None, **kwargs)
+            
         ret_list = [self.workers[i].recv() for i in id]
 
         assert (
